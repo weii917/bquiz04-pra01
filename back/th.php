@@ -125,7 +125,7 @@
             <td><?= $good['no']; ?></td>
             <td><?= $good['name']; ?></td>
             <td><?= $good['stock']; ?></td>
-            <td><?= ($good['sh'] == 1) ? '上架' : '下架'; ?></td>
+            <td><?= ($good['sh'] == 1) ? '販售中' : '已下架'; ?></td>
             <td style="width:120px">
                 <button onclick="location.href='?do=edit_goods&id=<?= $good['id']; ?>'">修改</button>
                 <button onclick="del('goods',<?= $good['id']; ?>)">刪除</button>
