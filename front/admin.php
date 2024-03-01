@@ -23,7 +23,7 @@
 </table>
 <div class="ct"><button onclick="login('admin')">確認</button></div>
 
-<script>
+<script> 
     function login(table) {
         $.get('./api/chk_ans.php', {
             ans: $("#ans").val()

@@ -73,6 +73,6 @@
     }
 
     function clean() {
-        $("#name,#acc,#pw,#tel,#addr,#email").val('')
+        $("input[type='text'],input[type='password'],input[type='number'],input[type='radio']").val('');
     }
 </script>
