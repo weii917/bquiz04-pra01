@@ -50,7 +50,7 @@
             if (parseInt(res) == 1 || user.acc == 'admin') {
                 alert(`此帳號${user.acc}已被使用`)
             } else {
-                $.post("./api/reg.php", user, () => {
+                $.post("./api/save_mem.php", user, () => {
                     alert("註冊成功，歡迎加入")
                     location.href = '?do=login'
                 })
