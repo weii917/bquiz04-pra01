@@ -5,7 +5,7 @@ $row = $Order->find($_GET['id']);
 
 <table class="all">
     <tr>
-        <td class="tt ct">登入帳號</td>
+        <td class="tt ct">會員帳號</td>
         <td class="pp">
             <?= $row['acc']; ?>
         </td>
@@ -15,16 +15,17 @@ $row = $Order->find($_GET['id']);
         <td class="pp"><?= $row['name']; ?></td>
     </tr>
     <tr>
-        <td class="tt ct">電話</td>
-        <td class="pp"><?= $row['tel']; ?></td>
+        <td class="tt ct">電子信箱</td>
+        <td class="pp"><?= $row['email']; ?></td>
     </tr>
     <tr>
-        <td class="tt ct">住址</td>
+        <td class="tt ct">聯絡住址</td>
         <td class="pp"><?= $row['addr']; ?></td>
     </tr>
     <tr>
-        <td class="tt ct">電子信箱</td>
-        <td class="pp"><?= $row['email']; ?></td>
+        <td class="tt ct">聯絡電話</td>
+        <td class="pp"><?= $row['tel']; ?></td>
+
     </tr>
 </table>
 <table class="all">
