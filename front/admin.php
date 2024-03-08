@@ -1,6 +1,4 @@
-<h2>第一次購買</h2>
-<img src="./icon/0413.jpg" onclick="location.href='?do=reg'">
-<h3>會員登入</h3>
+<h3>管理登入</h3>
 <table class="all">
     <tr>
         <td class="tt">帳號</td>
@@ -23,7 +21,7 @@
         </td>
     </tr>
 </table>
-<div class="ct"><button onclick="login('mem')">確認</button></div>
+<div class="ct"><button onclick="login('admin')">確認</button></div>
 
 <script>
     function login(table) {
@@ -31,7 +29,7 @@
             ans: $("#ans").val()
         }, (res) => {
             if (parseInt(res) == 0) {
-                alert("驗證碼錯誤，請重新輸入")
+                alert("對不起，您輸入的驗證碼有誤請您重新輸入")
             } else {
                 $.post("./api/chk_pw.php", {
                     table,
@@ -41,7 +39,7 @@
                     if (parseInt == 0) {
                         alert("帳號或密碼錯誤，請重新輸入")
                     } else {
-                        location.href = 'index.php';
+                        location.href = 'back.php';
                     }
                 })
             }
