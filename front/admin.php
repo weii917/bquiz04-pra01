@@ -36,7 +36,7 @@
                     acc: $("#acc").val(),
                     pw: $("#pw").val()
                 }, (res) => {
-                    if (parseInt == 0) {
+                    if (parseInt(res) == 0) {
                         alert("帳號或密碼錯誤，請重新輸入")
                     } else {
                         location.href = 'back.php';
