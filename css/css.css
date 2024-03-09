@@ -119,3 +119,10 @@ div.ww:hover>div.s {
 .sb button {
 	font-size: 12px;
 }
+
+#left .s a {
+	background-color: lightblue;
+	position: relative;
+	left: 20px;
+	z-index: 10;
+}
