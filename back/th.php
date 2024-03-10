@@ -45,6 +45,18 @@
 <script>
     getTypes(0)
 
+    function edit(dom, id) {
+        let name = prompt("請輸入您要修改的分類名稱:", `${$(dom).parent().prev().text()}`)
+        if (name != null) {
+            $.post("./api/save_type.php", {
+                name,
+                id
+            }, () => {
+                $(dom).parent().prev().text(name);
+            })
+        }
+    }
+
     function addType(type) {
         let name;
         let big_id;
