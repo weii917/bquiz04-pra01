@@ -1,1 +1,69 @@
-main
+<?php
+$type = $_GET['type'] ?? 0;
+$nav = '';
+$goods = null;
+if ($type == 0) {
+    $nav = "全部商品";
+    $goods = $Goods->all(['sh' => 1]);
+} else {
+    $t = $Type->find($type);
+    if ($t['big_id'] == 0) {
+        $nav = $t['name'];
+        $goods = $Goods->all(['sh' => 1, 'big' => $t['id']]);
+    } else {
+        $b = $Type->find($t['big_id']);
+        $nav = $b['name'] . ">" . $t['name'];
+        $goods = $Goods->all(['sh' => 1, 'mid' => $t['id']]);
+    }
+}
+
+?>
+
+<style>
+    .item {
+        display: flex;
+        height: 160px;
+        background: #F4C591;
+    }
+
+    .item .img {
+        width: 33%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .item .info {
+        width: 67%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info div {
+        border: 1px solid #999;
+        flex-grow: 1;
+    }
+</style>
+<h2><?= $nav; ?></h2>
+<?php
+foreach ($goods as $good) {
+?>
+
+    <div class="item">
+        <div class="img">
+            <a href="?do=detail&id=<?= $good['id']; ?>">
+                <img src="./img/<?= $good['img']; ?>" style="width:100%;height:110px">
+            </a>
+        </div>
+        <div class="info">
+            <div class="tt ct"><?= $good['name']; ?></div>
+            <div>價錢:<?= $good['price']; ?>
+                <img src="./icon/0402.jpg" onclick="location.href='?do=buycart&id=<?= $good['id']; ?>&qt=1'" style="float:right">
+            </div>
+            <div>規格:<?= $good['spec']; ?></div>
+            <div>簡介:<?= mb_substr($good['intro'], 0, 25); ?>...</div>
+        </div>
+    </div>
+<?php
+}
+?>
